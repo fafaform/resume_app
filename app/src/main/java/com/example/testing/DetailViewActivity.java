@@ -23,7 +23,7 @@ public class DetailViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_view);
 
         //////////////////////////////////
-        // bundle can be used on both putExtras and getExtras in case of wanna do
+        // TODO bundle can be used on both putExtras and getExtras in case of wanna do
         //////////////////////////////////
         Bundle b = getIntent().getExtras();
         String filename = ""; // or other values
@@ -39,7 +39,7 @@ public class DetailViewActivity extends AppCompatActivity {
         resume_detail = new ArrayList<>();
 
         //////////////////////////////////
-        // this is local declaration
+        // TODO this is local declaration
         //////////////////////////////////
         TextView firstname = findViewById(R.id.fname_detail);
         TextView lastname = findViewById(R.id.lname_detail);
@@ -47,13 +47,13 @@ public class DetailViewActivity extends AppCompatActivity {
         TextView telephone = findViewById(R.id.tele_detail);
 
         //////////////////////////////////
-        // get all file list
+        // TODO get all file list
         //////////////////////////////////
         try {
             inputStream = openFileInput(filename);
 
             //////////////////////////////////
-            // if not finished in a line, it is possible to enter to a next line
+            // TODO if not finished in a line, it is possible to enter to a next line
             //////////////////////////////////
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     inputStream, StandardCharsets.UTF_8));
@@ -70,7 +70,7 @@ public class DetailViewActivity extends AppCompatActivity {
         }
 
         //////////////////////////////////
-        // setText use to set text to every views that involve with text
+        // TODO setText use to set text to every views that involve with text
         //////////////////////////////////
         firstname.setText(resume_detail.get(0).substring(resume_detail.get(0).indexOf(":") + 1));
         lastname.setText(resume_detail.get(1).substring(resume_detail.get(1).indexOf(":") + 1));

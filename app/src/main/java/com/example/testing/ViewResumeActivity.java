@@ -31,46 +31,46 @@ public class ViewResumeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_resume);
 
         //////////////////////////////////
-        //link parameter to view in layout
+        //TODO link parameter to view in layout
         //////////////////////////////////
         view_main_layout = (ViewGroup) findViewById(R.id.view_main_layout);
 
 
         //////////////////////////////////
-        //Declare parameter
+        //TODO Declare parameter
         //////////////////////////////////
         list_file = new ArrayList<>();
 
 
         //////////////////////////////////
         // TODO create file if not exist
-        // try catch use for handle exception error
-        // other then "catch", "finally" is possible to use
+        // TODO try catch use for handle exception error
+        // TODO other then "catch", "finally" is possible to use
         //////////////////////////////////
         try {
             //////////////////////////////////
-            // open file
-            // Global is a public class like Utility class
+            // TODO open file
+            // TODO Global is a public class like Utility class
             //////////////////////////////////
             inputStream = openFileInput(Global.resume_list_file);
         } catch (FileNotFoundException fe){
             //////////////////////////////////
-            // nest try catch is possibled
+            // TODO nest try catch is possibled
             //////////////////////////////////
             try {
                 //////////////////////////////////
-                // use file to create new file if not exist
+                // TODO use file to create new file if not exist
                 //////////////////////////////////
                 File file = new File(getApplicationContext().getFilesDir(), Global.resume_list_file);
                 file.createNewFile();
             } catch (IOException e) {
                 //////////////////////////////////
-                // printStackTrace() is used to print error occur without crashing the program
+                // TODO printStackTrace() is used to print error occur without crashing the program
                 //////////////////////////////////
                 e.printStackTrace();
             }
             //////////////////////////////////
-            // more than a catch can be handled
+            // TODO more than a catch can be handled
             //////////////////////////////////
         } catch (Exception e){
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class ViewResumeActivity extends AppCompatActivity {
 //            inputStream = openFileInput(Global.resume_list_file);
 
             //////////////////////////////////
-            // bufferedReader is used to read text from a file
+            // TODO bufferedReader is used to read text from a file
             //////////////////////////////////
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     inputStream, StandardCharsets.UTF_8));
@@ -99,7 +99,7 @@ public class ViewResumeActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         //////////////////////////////////
-        // calling function
+        // TODO calling function
         //////////////////////////////////
         createCard();
     }
@@ -108,22 +108,22 @@ public class ViewResumeActivity extends AppCompatActivity {
 
 
         //////////////////////////////////
-        // create views manually using JAVA
+        // TODO create views manually using JAVA
         //////////////////////////////////
         try {
             //////////////////////////////////
-            // create layout property
+            // TODO create layout property
             //////////////////////////////////
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(20, 10, 20, 10);
 
             //////////////////////////////////
-            // loop to print all resume registered
+            // TODO loop to print all resume registered
             //////////////////////////////////
             for (int i = 0; i < list_file.size(); i++) {
                 //////////////////////////////////
-                // create container of other views
+                // TODO create container of other views
                 //////////////////////////////////
                 LinearLayout card = new LinearLayout(getBaseContext());
                 card.setOrientation(LinearLayout.HORIZONTAL);
@@ -131,9 +131,9 @@ public class ViewResumeActivity extends AppCompatActivity {
                 card.setPadding(30,50,30,50);
 
                 //////////////////////////////////
-                // create textview view
-                // set properties
-                // add to container above
+                // TODO create textview view
+                // TODO set properties
+                // TODO add to container above
                 //////////////////////////////////
                 TextView number = new TextView(getBaseContext());
                 number.setText((i+1)+": ");
@@ -148,15 +148,15 @@ public class ViewResumeActivity extends AppCompatActivity {
                 card.addView(name);
 
                 //////////////////////////////////
-                // add container view to existing view in layout file
-                // layout property is apply here
+                // TODO add container view to existing view in layout file
+                // TODO layout property is apply here
                 //////////////////////////////////
                 view_main_layout.addView(card, layoutParams);
 
                 //////////////////////////////////
-                // most of views can be set on click
-                // "card" is linearLayout
-                // manually on click function is called here
+                // TODO most of views can be set on click
+                // TODO "card" is linearLayout
+                // TODO manually on click function is called here
                 //////////////////////////////////
                 card.setOnClickListener(new MyOwnOnClickListener(list_file.get(i)));
             }
@@ -167,14 +167,14 @@ public class ViewResumeActivity extends AppCompatActivity {
 
 
     //////////////////////////////////
-    // create OnClickListener class manually
+    // TODO create OnClickListener class manually
     //////////////////////////////////
     private class MyOwnOnClickListener implements View.OnClickListener {
 
         String filename;
 
         //////////////////////////////////
-        // normally java class
+        // TODO normally java class
         //////////////////////////////////
         public MyOwnOnClickListener(String filename) {
             this.filename = filename;
@@ -185,7 +185,7 @@ public class ViewResumeActivity extends AppCompatActivity {
         {
             Intent detail_view = new Intent(getBaseContext(), DetailViewActivity.class);
             //////////////////////////////////
-            // parameter past to next activity is declared below
+            // TODO parameter past to next activity is declared below
             //////////////////////////////////
             detail_view.putExtra("filename",filename);
             startActivity(detail_view);

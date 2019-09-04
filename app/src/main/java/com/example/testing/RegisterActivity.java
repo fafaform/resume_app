@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,18 +54,27 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+
         //////////////////////////////////
-        // before getting some text remember to do some action or else the empty field will be return
+        // TODO before getting some text remember to do some action or else the empty field will be return
         //////////////////////////////////
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //////////////////////////////////
+                // TODO create file name to keep each people per file separately
+                //////////////////////////////////
                 filename = fname.getText().toString()+"_"+lname.getText().toString();
 
+                //////////////////////////////////
+                // TODO create contents that should put on a file
+                //////////////////////////////////
                 fileContents = "fname:"+fname.getText().toString()+"\n"+"lname:"+lname.getText().toString()+"\n"+"bdate:"+bdate.getText().toString()+"\n"
                         +"telephone:"+telephone.getText().toString();
 
+                //////////////////////////////////
                 //TODO create file if not exist
+                //////////////////////////////////
                 try {
                     inputStream = openFileInput(Global.resume_list_file);
                 } catch (FileNotFoundException fe){
@@ -76,29 +88,32 @@ public class RegisterActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+                //////////////////////////////////
                 //TODO get all file list
+                //////////////////////////////////
                 try {
                     inputStream = openFileInput(Global.resume_list_file);
-
                     BufferedReader br = new BufferedReader(new InputStreamReader(
                             inputStream, StandardCharsets.UTF_8));
-
                     String line;
-
                     while ((line = br.readLine()) != null) {
                         list_file.add(line);
                     }
-
                 } catch (Exception e){
                     e.printStackTrace();
                 }
 
+                //////////////////////////////////
                 //TODO write file
+                //////////////////////////////////
                 try {
                     outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
                     outputStream.write(fileContents.getBytes());
                     outputStream.close();
 
+                    //////////////////////////////////
+                    // TODO prevent duplicate saving file
+                    //////////////////////////////////
                     boolean already_have = false;
                     for(int i = 0; i < list_file.size(); i++){
                         if(list_file.get(i).equals(filename)){
@@ -117,6 +132,9 @@ public class RegisterActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                //////////////////////////////////
+                // TODO "finish" is used to finish an activity
+                //////////////////////////////////
                 finish();
             }
         });

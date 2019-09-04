@@ -15,8 +15,8 @@ import java.io.FileOutputStream;
 public class MainActivity extends AppCompatActivity {
 
     //////////////////////////////////
-    // local parameter cannot be used in different class, so, global (here) is one of the better place for parameter.
-    // private or public of parameter can be declare
+    // TODO local parameter cannot be used in different class, so, global (here) is one of the better place for parameter.
+    // TODO private or public of parameter can be declare
     //////////////////////////////////
     Button resume;
     Button register;
@@ -28,21 +28,21 @@ public class MainActivity extends AppCompatActivity {
 
 
         //////////////////////////////////
-        //link parameter to view in layout
+        // TODO link parameter to view in layout
         //////////////////////////////////
         resume = findViewById(R.id.view_info);
         register = findViewById(R.id.register);
 
 
         //////////////////////////////////
-        //set click function to "resume" button and "register" button
+        // TODO set click function to "resume" button and "register" button
         //////////////////////////////////
         resume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //////////////////////////////////
-                // Intent use to declare next activity that need to start
-                // startActivity is call to goto next Activity, so, make sure to finish everything before calling this line
+                // TODO Intent use to declare next activity that need to start
+                // TODO startActivity is call to goto next Activity, so, make sure to finish everything before calling this line
                 //////////////////////////////////
                 Intent res = new Intent(getBaseContext(), ViewResumeActivity.class);
                 startActivity(res);
