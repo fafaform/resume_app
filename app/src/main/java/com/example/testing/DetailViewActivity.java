@@ -41,6 +41,7 @@ public class DetailViewActivity extends AppCompatActivity {
         //////////////////////////////////
         // TODO this is local declaration
         //////////////////////////////////
+        TextView title = findViewById(R.id.title_detail);
         TextView firstname = findViewById(R.id.fname_detail);
         TextView lastname = findViewById(R.id.lname_detail);
         TextView bdate = findViewById(R.id.bdate_detail);
@@ -72,9 +73,10 @@ public class DetailViewActivity extends AppCompatActivity {
         //////////////////////////////////
         // TODO setText use to set text to every views that involve with text
         //////////////////////////////////
-        firstname.setText(resume_detail.get(0).substring(resume_detail.get(0).indexOf(":") + 1));
-        lastname.setText(resume_detail.get(1).substring(resume_detail.get(1).indexOf(":") + 1));
-        bdate.setText(resume_detail.get(2).substring(resume_detail.get(2).indexOf(":") + 1));
-        telephone.setText(resume_detail.get(3).substring(resume_detail.get(3).indexOf(":") + 1));
+        title.setText(resume_detail.get(0).substring(resume_detail.get(0).indexOf(":") + 1));
+        firstname.setText(resume_detail.get(1).substring(resume_detail.get(1).indexOf(":") + 1));
+        lastname.setText(resume_detail.get(2).substring(resume_detail.get(2).indexOf(":") + 1));
+        bdate.setText(resume_detail.get(3).substring(resume_detail.get(3).indexOf(":") + 1));
+        telephone.setText(resume_detail.get(4).substring(resume_detail.get(4).indexOf(":") + 1));
     }
 }

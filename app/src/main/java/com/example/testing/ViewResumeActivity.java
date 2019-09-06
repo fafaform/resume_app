@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -95,7 +96,9 @@ public class ViewResumeActivity extends AppCompatActivity {
             while ((line = br.readLine()) != null) {
                 list_file.add(line);
             }
-        } catch (Exception e){
+        } catch (NullPointerException ne){
+            Toast.makeText(getBaseContext(),"No RESUME Available",Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
             e.printStackTrace();
         }
         //////////////////////////////////
@@ -142,7 +145,7 @@ public class ViewResumeActivity extends AppCompatActivity {
                 card.addView(number);
 
                 TextView name = new TextView(getBaseContext());
-                name.setText(list_file.get(0));
+                name.setText(list_file.get(i));
                 name.setTextColor(getColor(R.color.fafaformBlace));
                 name.setTextSize(18);
                 card.addView(name);
