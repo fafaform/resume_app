@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
 //                        MovieFragment movieFragment = new MovieFragment();
 //                        return movieFragment;
-                        HomeFragment homeFragment2 = new HomeFragment();
-                        return homeFragment2;
+                        EtcFragment etcFragment = new EtcFragment();
+                        return etcFragment;
                     default:
 //                        HomeFragment homeFragment_start = new HomeFragment();
 //                        return homeFragment_start;
