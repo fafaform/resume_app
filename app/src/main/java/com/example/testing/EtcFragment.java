@@ -40,6 +40,11 @@ public class EtcFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_etc, container, false);
 
+        ////////////////////////////
+        // TODO request permission on JAVA
+        // this need to grant permission on manifest too
+        // CAMERA_PERMISSION is on Global.java
+        ////////////////////////////
         String[] PERMISSIONS = {CAMERA_PERMISSION};
         if (!hasPermissions(view.getContext(), PERMISSIONS)) {
             ActivityCompat.requestPermissions((Activity) view.getContext(), PERMISSIONS, 1);
@@ -52,6 +57,9 @@ public class EtcFragment extends Fragment {
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ////////////////////////////
+                // TODO Open camera uaing Intent
+                ////////////////////////////
                 Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(camera_intent, CAMERA_PIC_REQUEST);
             }
@@ -59,6 +67,10 @@ public class EtcFragment extends Fragment {
 
         return view;
     }
+
+    ////////////////////////////
+    // result function after taking a photo
+    ////////////////////////////
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         try {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
@@ -68,6 +80,9 @@ public class EtcFragment extends Fragment {
         }
     }
 
+    ////////////////////////////
+    // checking permission
+    ////////////////////////////
     private boolean hasPermissions(Context context, String... permissions) {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
             for (String permission : permissions) {

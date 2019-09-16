@@ -35,10 +35,16 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        ////////////////////////////
+        // TODO setting aminate view here
+        ////////////////////////////
         ImageView images = view.findViewById(R.id.animateView);
         images.setBackgroundResource(R.drawable.animate);
         AnimationDrawable animate = (AnimationDrawable) images.getBackground();
         animate.start();
+        ////////////////////////////
+        // finish animate view
+        ////////////////////////////
         return view;
     }
 
